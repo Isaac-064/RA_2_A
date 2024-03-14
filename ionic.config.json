@@ -1,0 +1,7 @@
+{
+  "name": "RA_2_A",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
