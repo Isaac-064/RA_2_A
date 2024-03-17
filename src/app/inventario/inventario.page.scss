@@ -1,3 +1,15 @@
 .example-content {
     flex-direction: column;
   }
+  .ion-text-center{
+    font-size: 24px; /* Tamaño del título */
+  font-weight: bold; /* Peso de la fuente */
+  color: #333; /* Color del texto */
+  text-transform: uppercase; /* Transformar texto a mayúsculas */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  text-align: center; /* Alinear texto al centro */
+  }
+  ion-img{
+    width: 80px;
+    height: 80px;
+  }

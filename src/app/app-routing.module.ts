@@ -39,13 +39,16 @@ const routes: Routes = [
       {
         path: 'informes',
         loadChildren: () => import('./informes/informes.module').then( m => m.InformesPageModule)
-      },
-      {
-        path: '',
-        redirectTo: 'inicio',
-        pathMatch: 'full'
       }
     ]
+  },
+  {
+    path: 'detalles/:id',
+    loadChildren: () => import('./detalles/detalles.module').then( m => m.DetallesPageModule)
+  },
+  {
+    path: 'agregar',
+    loadChildren: () => import('./agregar/agregar.module').then( m => m.AgregarPageModule)
   }
 ];
 
