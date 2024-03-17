@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CRUDService } from '../services/CRUD.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-proveedores',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProveedoresPage implements OnInit {
 
-  constructor() { }
+  Proveedores: any[] = [];
+  DB = 'Proveedores';
+  
+  constructor(private CRUDService: CRUDService, private router: Router) { }
 
-  ngOnInit() {
+  editarProveedor(proveedor: string) {
+    this.router.navigate(['/editar', proveedor]);
+    this.Proveedores = this.CRUDService.obtener(this.DB);
   }
 
+  borrarProveedor(proveedor: string) {
+    this.CRUDService.eliminar(this.DB, proveedor);
+    this.Proveedores = this.CRUDService.obtener(this.DB);
+  }
+  
+  ngOnInit() {
+    this.Proveedores = this.CRUDService.obtener(this.DB);
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { InventoryService } from '../services/inventory.service';
+import { CRUDService } from '../services/CRUD.service';
 
 @Component({
   selector: 'app-agregar',
@@ -12,7 +12,7 @@ export class AgregarPage implements OnInit {
   formularioProductos: FormGroup;
   dataBase: any;
 
-  constructor(private inventoryService: InventoryService, private fb: FormBuilder, private router: Router) {
+  constructor(private CRUDService: CRUDService, private fb: FormBuilder, private router: Router) {
     this.formularioProductos = this.fb.group({
       nombre: ['', Validators.required],
       precio: ['', Validators.required],
@@ -41,12 +41,12 @@ export class AgregarPage implements OnInit {
       };
 
       // Obtener productos del LocalStorage y agregar el nuevo producto
-      this.dataBase = this.inventoryService.obtener('inventario');
+      this.dataBase = this.CRUDService.obtener('inventario');
       if(this.dataBase == null){
         localStorage.setItem('inventario', "");
       }
       // Guardar productos en el LocalStorage
-      this.inventoryService.agregar('inventario', producto);
+      this.CRUDService.agregar('inventario', producto);
     }
   }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './Componentes/app.component';
+import { InicioPage } from './inicio/inicio.page';
+
 
 const routes: Routes = [
   {
@@ -22,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    component: AppComponent,
+    component: InicioPage,
     children: [
       {
         path: 'inventario',

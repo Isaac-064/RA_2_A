@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CRUDService } from '../services/CRUD.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pedidos',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosPage implements OnInit {
 
-  constructor() { }
+  Pedidos: any[] = [];
+  DB = 'Pedidos';
+  
+  constructor(private CRUDService: CRUDService, private router: Router) { }
 
-  ngOnInit() {
+  editarPedido(Pedido: string) {
+    this.router.navigate(['/editar', Pedido]);
+    this.Pedidos = this.CRUDService.obtener(this.DB);
   }
 
+  borrarPedido(Pedido: string) {
+    this.CRUDService.eliminar(this.DB, Pedido);
+    this.Pedidos = this.CRUDService.obtener(this.DB);
+  }
+  
+  ngOnInit() {
+    this.Pedidos = this.CRUDService.obtener(this.DB);
+  }
 }

@@ -5,12 +5,12 @@ import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './Componentes/app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { InventoryService } from './services/inventory.service'; // Importa el servicio
+import { CRUDService } from './services/CRUD.service'; // Importa el servicio
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [InventoryService], // Declara el servicio
+  providers: [CRUDService], // Declara el servicio
   bootstrap: [AppComponent],
 })
 export class AppModule {}
