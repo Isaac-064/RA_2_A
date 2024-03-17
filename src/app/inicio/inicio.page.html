@@ -1,0 +1,63 @@
+<ion-menu side="end" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Notificaciones</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-item>
+        <ion-toggle>Niveles de Stock bajos</ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-toggle>Productos vencidos</ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-toggle>Pedidos pendientes</ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>Bienvenido: {{usuarioNombre}}</ion-title>
+      <ion-buttons slot="end">  
+        <ion-menu-toggle>
+          <ion-button>
+            <ion-icon slot="icon-only" name="notifications"></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
+        <ion-button (click)="logout()">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true">
+    
+  </ion-content>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="inventario">
+        <ion-icon name="apps"></ion-icon>
+        Inventario
+      </ion-tab-button>
+      <ion-tab-button tab="proveedores">
+        <ion-icon name="people"></ion-icon>
+        Proveedores
+      </ion-tab-button>
+      <ion-tab-button tab="pedidos">
+        <ion-icon name="paper-plane"></ion-icon>
+        Pedidos
+      </ion-tab-button>
+      <ion-tab-button tab="informes">
+        <ion-icon name="folder-open"></ion-icon>
+        Informes
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</div>

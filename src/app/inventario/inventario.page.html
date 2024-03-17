@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Inventario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <ion-card-content>
+      <!-- Trabajando con listas en Ionic -->
+      <ion-list class="ion-padding-top">
+        <ion-list-header>
+          <ion-label class="ion-text-center" lines="full">Prductos</ion-label>
+          <ion-button routerLink="/agregar">Agregar</ion-button>
+        </ion-list-header>
+        <!-- Agreganfdo lista deslizable -->
+
+        <ion-item-sliding *ngFor="let producto of productos">
+          <ion-item [routerLink]="['/detalles', producto.id]" lines="none">
+            <ion-label>
+              {{producto.nombre}}
+            </ion-label>
+          </ion-item>
+
+          <!-- Creaer el menu de opciones -->
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click) = "borrarProducto(producto)">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+
+          <ion-item-options side="start">
+            <ion-item-option color="warning" (click) = "editarProducto(producto)">
+              <ion-icon slot="icon-only" name="create" ></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+
+        </ion-item-sliding>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="example-content">
+    <title>Inventario</title>
+    <div>
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input [(ngModel)]="newItemName"></ion-input>
+      </ion-item>
+    </div>
+    <div>
+
+      <!-- Lista de elementos del inventario -->
+      <ion-list *ngIf="inventory.length > 0">
+        <ion-item *ngFor="let item of inventory; let i = index">
+          <ion-label>{{ item.name }}</ion-label>
+          <ion-button (click)="removeItemFromInventory(i)">Remove</ion-button>
+        </ion-item>
+      </ion-list>
+
+    </div>
+    <ion-button (click)="agregarProducto({name: newItemName})">Add Item</ion-button>    
+  </div>
+</ion-content>

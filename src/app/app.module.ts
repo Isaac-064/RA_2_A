@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
-import { AppComponent } from './app.component';
+import { AppComponent } from './Componentes/app.component';
 import { AppRoutingModule } from './app-routing.module';
+
+import { InventoryService } from './services/inventory.service'; // Importa el servicio
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [InventoryService], // Declara el servicio
   bootstrap: [AppComponent],
 })
 export class AppModule {}
