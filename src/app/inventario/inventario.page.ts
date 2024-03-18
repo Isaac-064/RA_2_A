@@ -16,15 +16,15 @@ export class InventarioPage implements OnInit {
 
   editarProducto(producto: any) {
     this.router.navigate(['/editar', producto.id]);
-    this.inventory = this.CRUDService.obtener('inventario');
+    this.inventory = this.CRUDService.obtener('Inventario');
   }
 
   borrarProducto(producto: any) {
     this.CRUDService.eliminar('inventario', producto.id);
-    this.inventory = this.CRUDService.obtener('inventario');
+    this.inventory = this.CRUDService.obtener('Inventario');
   }
   
   ngOnInit() {
-    this.inventory = this.CRUDService.obtener('inventario');
+    this.inventory = this.CRUDService.obtener('Inventario');
   }
 }

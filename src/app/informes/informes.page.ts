@@ -14,13 +14,13 @@ export class InformesPage implements OnInit {
   
   constructor(private CRUDService: CRUDService, private router: Router) { }
 
-  editarInforme(Informe: string) {
-    this.router.navigate(['/editar', Informe]);
+  editarInforme(Informe: any) {
+    this.router.navigate(['/editar', Informe.id]);
     this.Informes = this.CRUDService.obtener(this.DB);
   }
 
-  borrarInforme(Informe: string) {
-    this.CRUDService.eliminar(this.DB, Informe);
+  borrarInforme(Informe: any) {
+    this.CRUDService.eliminar(this.DB, Informe.id);
     this.Informes = this.CRUDService.obtener(this.DB);
   }
   

@@ -14,13 +14,13 @@ export class PedidosPage implements OnInit {
   
   constructor(private CRUDService: CRUDService, private router: Router) { }
 
-  editarPedido(Pedido: string) {
-    this.router.navigate(['/editar', Pedido]);
+  editarPedido(Pedido: any) {
+    this.router.navigate(['/editar', Pedido.id]);
     this.Pedidos = this.CRUDService.obtener(this.DB);
   }
 
-  borrarPedido(Pedido: string) {
-    this.CRUDService.eliminar(this.DB, Pedido);
+  borrarPedido(Pedido: any) {
+    this.CRUDService.eliminar(this.DB, Pedido.id);
     this.Pedidos = this.CRUDService.obtener(this.DB);
   }
   

@@ -11,13 +11,13 @@
       <ion-list class="ion-padding-top">
         <ion-list-header>
           <ion-label class="ion-text-center" lines="full">Pedidos</ion-label>
-          <ion-button routerLink="/agregar">Agregar</ion-button>
+          <ion-button [routerLink]="['/agregar', { module: 'Pedido' }]">Agregar</ion-button>
         </ion-list-header>
         
         <ion-item-sliding *ngFor="let Pedido of Pedidos">
           <ion-item [routerLink]="['/detalles', Pedido.nombre]" lines="none">
-            <ion-img [src]="Pedido.imagen"></ion-img>
             <ion-label>{{Pedido.nombre}}</ion-label>
+            <ion-label>Cantidad: {{Pedido.cantidad}}</ion-label>
           </ion-item>
 
           <ion-item-options side="end">

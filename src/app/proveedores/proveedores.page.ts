@@ -14,13 +14,13 @@ export class ProveedoresPage implements OnInit {
   
   constructor(private CRUDService: CRUDService, private router: Router) { }
 
-  editarProveedor(proveedor: string) {
-    this.router.navigate(['/editar', proveedor]);
+  editarProveedor(proveedor: any) {
+    this.router.navigate(['/editar', proveedor.id]);
     this.Proveedores = this.CRUDService.obtener(this.DB);
   }
 
-  borrarProveedor(proveedor: string) {
-    this.CRUDService.eliminar(this.DB, proveedor);
+  borrarProveedor(proveedor: any) {
+    this.CRUDService.eliminar(this.DB, proveedor.id);
     this.Proveedores = this.CRUDService.obtener(this.DB);
   }
   

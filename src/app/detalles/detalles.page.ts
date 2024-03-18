@@ -1,7 +1,7 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 // detalle-producto.page.ts
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CRUDService } from '../services/CRUD.service';
 
 @Component({
@@ -14,12 +14,12 @@ export class DetallesPage implements OnInit {
   producto: any;
   id: any;
 
-  constructor(private CRUDService: CRUDService, private route: ActivatedRoute,private router: Router) { }
+  constructor(private CRUDService: CRUDService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     // Obtener el ID del producto de los parámetros de la URL
      this.id = this.route.snapshot.paramMap.get('id');
-     this.producto = this.CRUDService.buscar('inventario', this.id);
+     this.producto = this.CRUDService.buscar('Inventario', this.id);
   }
 
   guardarCambios(db:string) {

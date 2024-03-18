@@ -3,18 +3,20 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/principal"></ion-back-button>
     </ion-buttons>
-    <ion-title>Agregar Producto Nuevo</ion-title>
+    <ion-title>Agregar Nuevo {{id}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Agregue información del producto</ion-card-title>
+      <ion-card-title>Agregue la información Solicitada</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <form [formGroup]="formularioProductos">
+
+      <!-- Inventario -->
+      <form [formGroup]="formularioInventario" *ngIf="id === 'Producto'">
         <ion-item>
           <ion-label position="floating">Nombre</ion-label>
           <ion-input formControlName="nombre"></ion-input>
@@ -36,9 +38,66 @@
           <ion-input formControlName="imagen" type="text"></ion-input>
         </ion-item>
       </form>
+
+      <!-- Proveedores -->
+      <form [formGroup]="formularioProveedores" *ngIf="id === 'Proveedor'">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contacto</ion-label>
+          <ion-input formControlName="contacto" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Detalles</ion-label>
+          <ion-textarea formControlName="detalles"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Imagen</ion-label>
+          <ion-input formControlName="imagen" type="text"></ion-input>
+        </ion-item>
+      </form>
+      
+      <!-- Pedidos -->
+      <form [formGroup]="formularioPedidos" *ngIf="id === 'Pedido'">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Precio</ion-label>
+          <ion-input formControlName="precio" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Cantidad del pedido</ion-label>
+          <ion-input formControlName="cantidad" type="number"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Detalles</ion-label>
+          <ion-textarea formControlName="detalles"></ion-textarea>
+        </ion-item>
+      </form>
+
+      <!-- Informes -->
+      <form [formGroup]="formularioInformes" *ngIf="id === 'Informe'">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Detalles</ion-label>
+          <ion-textarea formControlName="detalles"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Imagen</ion-label>
+          <ion-input formControlName="imagen" type="text"></ion-input>
+        </ion-item>
+      </form>
+
     </ion-card-content>
     <ion-button (click)="guardarProducto()">
-      Guardar Producto
+      Guardar
     </ion-button>
   </ion-card>
 </ion-content>

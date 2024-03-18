@@ -10,7 +10,7 @@
       <ion-list class="ion-padding-top">
         <ion-list-header>
           <ion-label class="ion-text-center" lines="full">Proveedores</ion-label>
-          <ion-button routerLink="/agregar">Agregar</ion-button>
+          <ion-button [routerLink]="['/agregar', { module: 'Proveedor' }]">Agregar</ion-button>
         </ion-list-header>
         
         <ion-item-sliding *ngFor="let proveedor of Proveedores">

@@ -10,7 +10,7 @@
       <ion-list class="ion-padding-top">
         <ion-list-header>
           <ion-label class="ion-text-center" lines="full">Productos</ion-label>
-          <ion-button routerLink="/agregar">Agregar</ion-button>
+          <ion-button [routerLink]="['/agregar', { module: 'Producto' }]">Agregar</ion-button>
         </ion-list-header>
         
         <ion-item-sliding *ngFor="let producto of inventory">

@@ -36,17 +36,13 @@ export class InicioPage implements OnInit {
 
   ngOnInit() {
     var usuario = localStorage.getItem('Ingresado');
-    switch(usuario) {
-      case "admin":
+    if(usuario == "admin") {
         this.usuarioNombre = "admin";
-        break;
-      case "user":
-        var usuarioName = localStorage.getItem('usuario');
-        if (usuarioName !== null) {
-          this.usuarioNombre = JSON.parse(usuarioName).nom;
-        }
-        break;
-    }
+        console.log("Ingreso: admin");
+      }else{
+        this.usuarioNombre = localStorage.getItem('Ingresado');
+        console.log("Ingreso: ", this.usuarioNombre);
+      }
   }
 
 }

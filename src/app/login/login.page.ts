@@ -44,11 +44,10 @@ export class LoginPage implements OnInit {
       //Checar campos Usuario && Password
       if (usuario.nom == f.nombre && usuario.pass == f.password || f.nombre == "admin" && f.password == "1234") {
         //Comprobar que funcione
-        console.log("Ingresando...");
         if (f.nombre == "admin" && f.password == 1234) {
           localStorage.setItem('Ingresado', 'admin');
         } else{
-          localStorage.setItem('Ingresado', 'user');
+          localStorage.setItem('Ingresado', usuario.nom);
         }
 
         const alert = await this.alertController.create({
