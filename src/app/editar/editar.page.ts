@@ -4,11 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { CRUDService } from '../services/CRUD.service';
 
 @Component({
-  selector: 'app-detalles',
-  templateUrl: './detalles.page.html',
-  styleUrls: ['./detalles.page.scss'],
+  selector: 'app-editar',
+  templateUrl: './editar.page.html',
+  styleUrls: ['./editar.page.scss'],
 })
-export class DetallesPage implements OnInit {
+export class EditarPage implements OnInit {
   inventory: any[] = [];
   producto: any;
   id: any;
@@ -23,10 +23,11 @@ export class DetallesPage implements OnInit {
 
   guardarCambios(db:string) {
     console.log(this.producto);
-    // Obtener los productos del LocalStorage
-    this.producto = this.CRUDService.buscar(db, this.id);
-    console.log(this.producto);
+    // // Obtener los productos del LocalStorage
+    // this.producto = this.CRUDService.buscar(db, this.id);
+    // console.log(this.producto);
     // Actualizar el producto en el array de productos
     this.CRUDService.editar(db, this.id, this.producto);
   }
+
 }

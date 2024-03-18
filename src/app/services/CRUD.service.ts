@@ -32,8 +32,15 @@ export class CRUDService {
 
   // Método para actualizar un elemento del inventario
   editar(db:string, id: any, newItem: any) {
-    this.dataBase[this.buscar(db, id)] = newItem;
+    this.dataBase = this.obtener(db);
+    const Base = this.dataBase.findIndex((p: any) => p.id === newItem.id);
+    console.log(Base);
+    this.dataBase[Base] = newItem;
     localStorage.setItem(db, JSON.stringify(this.dataBase));
+    // this.dataBase[Base] = newItem;
+    // console.log(this.dataBase);
+    // var prueba = localStorage.setItem(db, JSON.stringify(this.dataBase));
+    // console.log(prueba);
   }
 
   // Método para eliminar un elemento del inventario

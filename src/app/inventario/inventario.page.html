@@ -14,7 +14,7 @@
         </ion-list-header>
         
         <ion-item-sliding *ngFor="let producto of inventory">
-          <ion-item [routerLink]="['/detalles', producto.id]" lines="none">
+          <ion-item [routerLink]="['/detalles', producto.id, { module: 'Producto' }]" lines="none">
             <ion-label>{{producto.nombre}}</ion-label>
             <ion-img [src]="producto.imagen"></ion-img>
           </ion-item>
