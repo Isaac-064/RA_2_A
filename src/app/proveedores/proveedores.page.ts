@@ -15,7 +15,7 @@ export class ProveedoresPage implements OnInit {
   constructor(private CRUDService: CRUDService, private router: Router) { }
 
   editarProveedor(proveedor: any) {
-    this.router.navigate(['/editar', proveedor.id]);
+    this.router.navigate(['/editar', proveedor.id, { module: 'Proveedor' }]);
     this.Proveedores = this.CRUDService.obtener(this.DB);
   }
 

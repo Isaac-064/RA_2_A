@@ -9,68 +9,181 @@
 
 <ion-content [fullscreen]="true">
   <ion-card>
+    
     <ion-card-header>
-      <ion-card-title>{{ producto?.nombre }}</ion-card-title>
+      <ion-card-title>{{ elemento?.nombre }}</ion-card-title>
     </ion-card-header>
 
-    <ion-card-content>
+    <ion-card-content *ngIf="modulo === 'Inventario'">
       <ion-grid>
         <ion-row>
           <ion-col size="12" class="ion-text-center">
-            <ion-img [src]="producto?.imagen" alt="Imagen del producto" class="producto-imagen"></ion-img>
+            <ion-img [src]="elemento?.imagen" alt="Imagen del elemento" class="elemento-imagen"></ion-img>
           </ion-col>
         </ion-row>
-
         <ion-row>
           <ion-col size="12">
             <ion-item>
               <ion-label position="floating">Nombre</ion-label>
-              <ion-input [(ngModel)]="producto.nombre"></ion-input>
+              <ion-input [(ngModel)]="elemento.nombre"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
-
         <ion-row>
           <ion-col size="12" sizeMd="6">
             <ion-item>
               <ion-label position="floating">Precio</ion-label>
-              <ion-input [(ngModel)]="producto.precio" type="number"></ion-input>
-            </ion-item>
-          </ion-col>
-          
-          <ion-col size="12" sizeMd="6">
-            <ion-item>
-              <ion-label position="floating">Cantidad en Stock</ion-label>
-              <ion-input [(ngModel)]="producto.cantidad" type="number"></ion-input>
+              <ion-input [(ngModel)]="elemento.precio" type="number"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
-
+        <ion-row>
+          <ion-col size="12" sizeMd="6">
+            <ion-item>
+              <ion-label position="floating">Cantidad en Stock</ion-label>
+              <ion-input [(ngModel)]="elemento.cantidad" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
         <ion-row>
           <ion-col size="12">
             <ion-item>
               <ion-label position="floating">Detalles</ion-label>
-              <ion-textarea [(ngModel)]="producto.detalles"></ion-textarea>
+              <ion-textarea [(ngModel)]="elemento.detalles"></ion-textarea>
             </ion-item>
           </ion-col>
         </ion-row>
-
         <ion-row>
           <ion-col size="12">
             <ion-item>
               <ion-label position="floating">Imagen</ion-label>
-              <ion-input [(ngModel)]="producto.imagen" type="text"></ion-input>
+              <ion-input [(ngModel)]="elemento.imagen" type="text"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-card-content>
 
+    <ion-card-content *ngIf="modulo === 'Proveedor'">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="ion-text-center">
+            <ion-img [src]="elemento?.imagen" alt="Foto del proveedor" class="elemento-imagen"></ion-img>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label position="floating">Nombre</ion-label>
+              <ion-input [(ngModel)]="elemento.nombre"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" sizeMd="6">
+            <ion-item>
+              <ion-label position="floating">Contacto</ion-label>
+              <ion-input [(ngModel)]="elemento.contacto" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label position="floating">Detalles</ion-label>
+              <ion-textarea [(ngModel)]="elemento.detalles"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label position="floating">Imagen</ion-label>
+              <ion-input [(ngModel)]="elemento.imagen" type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+
+    <ion-card-content *ngIf="modulo === 'Pedido'">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label position="floating">Nombre</ion-label>
+              <ion-input [(ngModel)]="elemento.nombre"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" sizeMd="6">
+            <ion-item>
+              <ion-label position="floating">Precio</ion-label>
+              <ion-input [(ngModel)]="elemento.precio" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12" sizeMd="6">
+            <ion-item>
+              <ion-label position="floating">Cantidad pedida</ion-label>
+              <ion-input [(ngModel)]="elemento.cantidad" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label position="floating">Detalles</ion-label>
+              <ion-textarea [(ngModel)]="elemento.detalles"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+
+    <ion-card-content *ngIf="modulo === 'Informe'">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="ion-text-center">
+            <ion-img [src]="elemento?.imagen" alt="Imagen del elemento" class="elemento-imagen"></ion-img>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label position="floating">Nombre</ion-label>
+              <ion-input [(ngModel)]="elemento.nombre"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label position="floating">Detalles</ion-label>
+              <ion-textarea [(ngModel)]="elemento.detalles"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-item>
+              <ion-label position="floating">Imagen</ion-label>
+              <ion-input [(ngModel)]="elemento.imagen" type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+
+
     <!-- Botón para guardar los cambios -->
     <ion-row>
       <ion-col size="12" class="ion-text-center">
-        <ion-button expand="block" color="success" (click)="guardarCambios('Inventario')">Guardar Cambios</ion-button>
+        <ion-button expand="block" color="success" (click)="guardarCambios()">Guardar Cambios</ion-button>
       </ion-col>
     </ion-row>
+
   </ion-card>
 </ion-content>

@@ -57,7 +57,7 @@ export class LoginPage implements OnInit {
         });
         await alert.present();
         
-        this.router.navigate(['/inicio']);
+        this.router.navigate(['/inicio/inventario']);
 
       }else{
         console.log("Datos Erroneos");

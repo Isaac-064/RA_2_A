@@ -15,7 +15,7 @@ export class PedidosPage implements OnInit {
   constructor(private CRUDService: CRUDService, private router: Router) { }
 
   editarPedido(Pedido: any) {
-    this.router.navigate(['/editar', Pedido.id]);
+    this.router.navigate(['/editar', Pedido.id, { module: 'Pedido' }]);
     this.Pedidos = this.CRUDService.obtener(this.DB);
   }
 

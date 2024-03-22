@@ -15,7 +15,7 @@ export class InformesPage implements OnInit {
   constructor(private CRUDService: CRUDService, private router: Router) { }
 
   editarInforme(Informe: any) {
-    this.router.navigate(['/editar', Informe.id]);
+    this.router.navigate(['/editar', Informe.id, { module: 'Informe' }]);
     this.Informes = this.CRUDService.obtener(this.DB);
   }
 

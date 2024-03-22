@@ -10,21 +10,22 @@ import { CRUDService } from '../services/CRUD.service'; // Importa el servicio
 })
 export class InventarioPage implements OnInit {
 
-  inventory: any[] = [];
+  Inventory: any[] = [];
+  DB = 'Inventario';
   
   constructor(private CRUDService: CRUDService, private router: Router) { }
 
   editarProducto(producto: any) {
-    this.router.navigate(['/editar', producto.id]);
-    this.inventory = this.CRUDService.obtener('Inventario');
+    this.router.navigate(['/editar', producto.id, { module: 'Inventario' }]);
+    this.Inventory = this.CRUDService.obtener(this.DB);
   }
 
   borrarProducto(producto: any) {
-    this.CRUDService.eliminar('inventario', producto.id);
-    this.inventory = this.CRUDService.obtener('Inventario');
+    this.CRUDService.eliminar(this.DB, producto.id);
+    this.Inventory = this.CRUDService.obtener(this.DB);
   }
   
   ngOnInit() {
-    this.inventory = this.CRUDService.obtener('Inventario');
+    this.Inventory = this.CRUDService.obtener(this.DB);
   }
 }
